@@ -23,7 +23,6 @@ class GameList extends Component {
   };
 
   render() {
-    console.log(this.state);
     return this.state.games.map(game => (
       <Game key={game.id} game={game} deleteGame={this.deleteGame} />
     ));
