@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import Game from "./Game";
 
-export class GameList extends Component {
+class GameList extends Component {
   state = {
     games: []
   };
@@ -14,8 +15,18 @@ export class GameList extends Component {
         console.log(games);
       });
   }
+
+  deleteGame = id => {
+    this.setState({
+      games: [...this.state.games.filter(game => game.id !== id)]
+    });
+  };
+
   render() {
-    return <div></div>;
+    console.log(this.state);
+    return this.state.games.map(game => (
+      <Game key={game.id} game={game} deleteGame={this.deleteGame} />
+    ));
   }
 }
 
