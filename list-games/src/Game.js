@@ -6,15 +6,17 @@ const Game = ({ game }) => {
             <div className="game-pic">
                 <img src={game.background_image} alt=""></img>
             </div>
-            <div className="game-title">
-                <h3>Title: {game.name}</h3>
-            </div>
-            <div className="game-rating">
-                <h4>Rated as {game.rating} stars!</h4>
-            </div>
-            <div className="game-release">
-                <h5>Released in {game.release}</h5>
-            </div>
+                <div className="game-text">
+                    <div className="game-title">
+                        <p>{game.name}</p>
+                    </div>
+                    <div className="game-rating">
+                        <p>Rated as {game.rating} stars!</p>
+                    </div>
+                    <div className="game-release">
+                        <p>Released in {game.released}</p>
+                    </div>
+                </div>
         </div>
     )
 };

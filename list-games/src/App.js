@@ -27,6 +27,9 @@ class App extends Component {
   render () {
     return (
       <div className="Games">
+        <div className="header">
+          Which game would you like to play?
+        </div>
         <GameList games={this.state.games}/>
       </div>
     )
@@ -45,5 +48,5 @@ export default App;
 // - GameList fetches from the API - check!
 // - Each game displays on Game component - check!
 // - Game retrieves with props the information of each game - check!
-// - CSS to my choice - not checked YET
+// - CSS to my choice - check!
 // - Game contains a Button that removes a game from the state - not checked YET

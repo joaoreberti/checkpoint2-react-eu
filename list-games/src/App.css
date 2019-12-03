@@ -1,22 +1,36 @@
-.App {
-  text-align: center;
+body {
+  background-color: aliceblue;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.our-game {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-items: left;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-bottom-style: solid;
+  border-color: #b3dbff;
+  border-width: 1px;
 }
 
-.App-link {
-  color: #09d3ac;
+.header {
+  padding-top: 2vh;
+  padding-left: 7vh;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.game-text {
+  flex-direction: column;
+  padding-left: 2vh;
+}
+
+.game-pic img {
+  width: 200px;
+  height: auto;
+  padding-left: 5vh;
+}
+
+.game-title {
+  color: red;
+  font-weight: bold;
 }
