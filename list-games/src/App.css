@@ -34,3 +34,8 @@ body {
   color: red;
   font-weight: bold;
 }
+
+.game-button {
+  padding-top: 5vh;
+  padding-left: 5vh;
+}

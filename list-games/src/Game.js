@@ -17,8 +17,13 @@ const Game = ({ game }) => {
                         <p>Released in {game.released}</p>
                     </div>
                 </div>
+            <div className="game-button">
+                <button>Nope, not this one</button>
+            </div>
         </div>
     )
 };
 
 export default Game;
+
+// This button is just here to make things pretty while the real Button in the Button component doesn't work
