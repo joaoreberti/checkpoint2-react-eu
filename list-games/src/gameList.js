@@ -58,6 +58,9 @@ class GameList extends Component {
             })
         }
     }
+    getID = () => {
+
+    }
 
     render () {
         return(
@@ -70,8 +73,10 @@ class GameList extends Component {
                         key={game.id} 
                         game={game}
                         onRemove={this.onRemove}
+                        getId = {this.getId}
                     /> ))} 
-                </div> 
+                </div>
+              
              </div> 
         )
     }
