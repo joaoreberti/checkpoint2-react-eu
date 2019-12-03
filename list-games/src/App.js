@@ -10,10 +10,12 @@ class App extends React.Component {
       fullData: [],
       filteredData: [],
       test: "default",
-      deletedGames: ["test", "test"]
+      deletedGames: ["test", "test"],
+      bestGamesOnly: true
     };
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleBestOnly = this.handleBestOnly.bind(this);
   }
 
   FnGetDataAPI = async () => {
@@ -37,6 +39,21 @@ class App extends React.Component {
     });
 
     this.setState({ filteredData: filteredArr, deletedGames: deletedGames });
+  }
+
+  handleBestOnly() {
+    if (this.state.bestGamesOnly === false) {
+      const filteredArr = this.state.filteredData.filter(function(item) {
+        return item.rating >= 4.5;
+      });
+
+      this.setState({ filteredData: filteredArr, bestGamesOnly: true });
+    } else {
+      this.setState({
+        filteredData: this.state.fullData,
+        bestGamesOnly: false
+      });
+    }
   }
 
   // handleSearch(e) {
@@ -88,8 +105,19 @@ class App extends React.Component {
           <h1>Games</h1>
         </div>
         <hr />
+        <div>
+          <h2>All Games</h2>
 
-        <h2>All Games</h2>
+          <div
+            class="ui animated fade button best_games"
+            tabindex="0"
+            onClick={this.handleBestOnly}
+          >
+            <div class="visible content">Toggle best games only</div>
+            <div class="hidden content">4.5⭐ or above</div>
+          </div>
+        </div>
+        <br /> <br /> <br /> <br />
         <div class="ui four column relaxed grid">
           {this.state.filteredData.map(id => {
             return (
