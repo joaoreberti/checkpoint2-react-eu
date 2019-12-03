@@ -39,7 +39,7 @@ class GameList extends Component {
         })
     }
 
-    render() {
+    render() { 
        
         return (
             <div>
