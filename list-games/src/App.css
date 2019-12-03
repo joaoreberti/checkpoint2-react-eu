@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+/* GameList */
 .games-list {
   display: flex;
   flex-wrap: wrap;
@@ -32,6 +33,7 @@
   text-decoration-line: underline;
   cursor: pointer;
   color: rgb(25, 56, 0);
+  margin: 10px 0;
 }
 
 .game > p {
@@ -51,6 +53,7 @@
   background-color: gray;
 }
 
+/* ScreenShots */
 .back {
   display: block;
   margin: 20px auto;
@@ -66,6 +69,7 @@
   width: 90vw;
 }
 
+/* Fancybox */
 .react-fancybox {
   width: 300px;
   margin: 0 3px;
@@ -83,12 +87,20 @@
   cursor: pointer;
 }
 
+.close-btn {
+  cursor: pointer;
+}
+
+/* media queries */
 @media screen and (max-width: 600px) {
   .image-box > img {
     width: 90vw;
   }
   .close-btn {
     display: none;
+  }
+  .game {
+    margin: 10px;
   }
 }
 

@@ -12,7 +12,6 @@ function GameList() {
       .then(res => setGamesArr(res));
   }, [])
 
-  console.log(gamesArr);
   return (
     <>
       {gamesArr && <FilterButton setFilterToggle={setFilterToggle} isFilterOn={isFilterOn}/>}

@@ -6,9 +6,9 @@ function Game({ game, setGamesArr, gamesArr }) {
   
   return (
     <div className="game">
-      <img className="image" src={background_image}/>
+      <img className="image" src={background_image} alt=""/>
       <button className="button" onClick={() => setGamesArr(gamesArr.filter(each => each !== game))}>Remove</button>
-      {/* instead of passing and usin routerProps.match.params.id  */}
+      {/* instead of passing and using routerProps.match.params.id  */}
       <Link to={{pathname: `/game/screenshots/${game.id}`, game: gamesArr.filter(each => each === game)[0]}}>
         <p className="game-title">{name}</p>
       </Link>
