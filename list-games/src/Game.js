@@ -1,4 +1,5 @@
 import React from "react";
+import Button from './Button'
 
 const Game = ({ game }) => {
     return (
@@ -19,6 +20,7 @@ const Game = ({ game }) => {
                 </div>
             <div className="game-button">
                 <button>Nope, not this one</button>
+                <Button />
             </div>
         </div>
     )

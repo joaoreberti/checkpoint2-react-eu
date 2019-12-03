@@ -21,6 +21,23 @@ class App extends Component {
       })
   };
 
+  handleGameShows = (clickedGame) => {
+    this.setState(
+      (state) => {
+        const updatedGames = state.games.map((games) => {
+          if(games.text === clickedGame.text) {
+            games.isShowing = !games.isShowing;
+          }
+          return games;
+        })
+        return {
+          ...state,
+          games: updatedGames
+        }
+      },
+    )
+  }
+
   componentDidMount(){
     this.getGame()
   }
@@ -29,9 +46,9 @@ class App extends Component {
     return (
       <div className="Games">
         <div className="header">
-          Which game would you like to play?
+          Which game would you like to learn more about?
         </div>
-        <GameList games={this.state.games}/>
+        <GameList games={this.state.games} onClick={this.handleGameShows} />
       </div>
     )
   }
@@ -50,4 +67,4 @@ export default App;
 // - Each game displays on Game component - check!
 // - Game retrieves with props the information of each game - check!
 // - CSS to my choice - check!
-// - Game contains a Button that removes a game from the state - not checked YET
+// - Game contains a Button that removes a game from the state - not checked ever, apparently
