@@ -1,22 +1,21 @@
-.App {
-  text-align: center;
+body {
+  padding-top: 5vh;
+  padding-left: 10vh;
+  padding-right: 7vh;
+  background: linear-gradient(
+    90deg,
+    rgba(75,76,81, 1) 0%,
+    rgba(75,76,81, 0.8) 50%
+  );
 }
 
-.App-logo {
-  height: 40vmin;
-}
+.logo img {
+  height: 20vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border: inset;
+  border-radius: 1em;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
 }
