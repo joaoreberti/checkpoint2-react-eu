@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  max-width: 90vw;
+  margin: auto;
+}
+
+.games{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center
+}
+
+.eachGame{
+  max-width: 28vw;
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  /* border-radius: 8px */
+}
+
+.eachGame img {
+  max-width: 22vw;
+  height: 25vh;
+}
+
+span{
+  font-weight: bold;
+}
+
+button{
+  margin-bottom: 5px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+}
