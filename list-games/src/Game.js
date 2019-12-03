@@ -28,7 +28,9 @@ class MoviesList extends React.Component {
             </div>
             <div class="description">
               {" "}
-              <Link to={"screenshots/" + this.props.id}>See screenshots</Link>
+              <Link to={"screenshots/jeu/" + this.props.id}>
+                See screenshots
+              </Link>
             </div>
             <br></br>
             <button

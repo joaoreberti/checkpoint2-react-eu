@@ -110,7 +110,7 @@ class App extends React.Component {
           return (
             <Route
               exact
-              path={"/screenshots/" + id.id}
+              path={"/screenshots/jeu/" + id.id}
               render={() => (
                 <>
                   <div className="App">
