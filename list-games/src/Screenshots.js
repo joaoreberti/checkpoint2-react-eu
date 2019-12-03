@@ -14,17 +14,18 @@ class Screenshots extends React.Component {
     return (
       <>
         <h1>{this.props.name}</h1>
+        <h1>{this.props.rating} ⭐ </h1>
         <h2>Screenshots</h2>
-        <div class="ui card">
-          <div class="image">
-            <img src={this.props.screenshots[0].image}></img>
-            <img src={this.props.screenshots[1].image}></img>
-            <img src={this.props.screenshots[2].image}></img>
-            <img src={this.props.screenshots[3].image}></img>
-            <img src={this.props.screenshots[4].image}></img>
-            <img src={this.props.screenshots[5].image}></img>
-            <img src={this.props.screenshots[6].image}></img>
-          </div>
+        <div className="screenshots">
+          {this.props.screenshots.map(id => {
+            return (
+              <div class="ui card">
+                <div class="image">
+                  <img src={id.image}></img>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </>
     );

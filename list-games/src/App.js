@@ -13,7 +13,7 @@ class App extends React.Component {
       filteredData: [],
       test: "default",
       deletedGames: ["test", "test"],
-      bestGamesOnly: true
+      bestGamesOnly: false
     };
 
     this.handleDelete = this.handleDelete.bind(this);
@@ -69,11 +69,19 @@ class App extends React.Component {
             <>
               <div className="App">
                 <div className="logo">
-                  <h1>Games</h1>
+                  <h1>Game Finder 🎮</h1>
                 </div>
                 <hr />
                 <div>
-                  <h2>All Games</h2>
+                  <h2>
+                    {this.state.bestGamesOnly === true
+                      ? "Best Games Only (" +
+                        this.state.filteredData.length +
+                        "/" +
+                        this.state.fullData.length +
+                        ")"
+                      : "All Games "}
+                  </h2>
 
                   <div
                     class="ui animated fade button best_games"
@@ -121,6 +129,7 @@ class App extends React.Component {
                     <Screenshots
                       screenshots={id.short_screenshots}
                       name={id.name}
+                      rating={id.rating}
                     />
                   </div>
                 </>
