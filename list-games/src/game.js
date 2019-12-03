@@ -2,10 +2,10 @@ import React from 'react';
 import './game.css';
 
 
-const Game = ({game, onRemove, value}) => {
+const Game = ({game, onRemove,}) => {
     const {name, background_image, rating, released, id}=game;
     const handleClick = (e) => {onRemove(e)}
-    
+
     return (
     <div className='card'>
         <img className="card-img-top" src= {background_image} alt={name}></img>
