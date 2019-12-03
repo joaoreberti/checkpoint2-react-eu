@@ -2,6 +2,7 @@
 
 import React from "react";
 import "./Game.css";
+import { Switch, Route, withRouter, Link } from "react-router-dom";
 
 class MoviesList extends React.Component {
   constructor(props) {
@@ -24,6 +25,10 @@ class MoviesList extends React.Component {
             <a class="header">{this.props.name}</a>
             <div class="meta">
               <span class="date">{this.props.rating} ⭐</span>
+            </div>
+            <div class="description">
+              {" "}
+              <Link to={"screenshots/" + this.props.id}>See screenshots</Link>
             </div>
             <br></br>
             <button
