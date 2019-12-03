@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import GameList from './GameList';
+import Screenshot from './Screenshot'
+import { Switch, Route} from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
@@ -38,8 +40,8 @@ class App extends Component {
 
   handleBestGames = () => {
     this.setState({
-        showOnlyBestGames: !this.state.showOnlyBestGames
-      })
+      showOnlyBestGames: !this.state.showOnlyBestGames
+    })
   }
 
 
@@ -49,12 +51,31 @@ class App extends Component {
 
     return (
       <div className="App">
-        <GameList
-          gamesData={gamesData}
-          onRemoveFromList={this.handleRemoveFromList}
-          showOnlyBestGames={showOnlyBestGames}
-          onPickByRating={this.handleBestGames}
-        />
+
+        <Switch>
+          <Route
+            path="/jeu/screenshots/:id"
+            render={
+              (routeProps) => {
+                const routeId = routeProps.match.params.id
+                const gameScreenshot = gamesData.find(game => game.id === +routeId)
+                return <Screenshot
+                  gameScreenshot={gameScreenshot}
+                />;
+              }
+            }
+          />
+          <Route
+            exact path="/"
+            render={() => <GameList
+              gamesData={gamesData}
+              onRemoveFromList={this.handleRemoveFromList}
+              showOnlyBestGames={showOnlyBestGames}
+              onPickByRating={this.handleBestGames}
+            />}
+          />
+        </Switch>
+
       </div>
     )
 
