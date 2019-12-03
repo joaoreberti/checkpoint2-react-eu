@@ -4,10 +4,6 @@ import "./Screenshots.css";
 class Screenshots extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      test: "test"
-    };
-    // this.handleLike = this.handleLike.bind(this);
   }
 
   render() {

@@ -11,8 +11,7 @@ class App extends React.Component {
     this.state = {
       fullData: [],
       filteredData: [],
-      test: "default",
-      deletedGames: ["test", "test"],
+      deletedGames: [],
       bestGamesOnly: false
     };
 
