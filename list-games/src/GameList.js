@@ -25,6 +25,9 @@ class GameList extends Component {
 }
 
 best_games = () => {
+
+    //because the state is set onClick, when best games page is reloaded the state is empty and nothing renders. Best practice?
+
   this.setState((state) => {
 
       const filtered_rating =  
@@ -39,8 +42,8 @@ best_games = () => {
 }
   componentDidMount() {
     this.fetch_games()
-    this.best_games()
   }
+
 
   remove_game = (game) => {
     this.setState((state) => {
@@ -57,38 +60,22 @@ best_games = () => {
   }
 
   
-
-  
   render() {
+      console.log(this.state.games)
     return (
       <>
         <Switch>
-            <Route 
-                exact path="/best-games"
-                render={() =>
-                    <div className="gamesList-All">
-                    {
-                        this.state.bestGames.map((game, i) => {
-                            return (
-            
-                                <Game
-                                    key={i}
-                                    game={game}
-                                    remove_game={this.remove_game}
-                                /> 
-                            )
-                        })  
-                    }
-                    </div>
-                }
-            >
 
-            </Route>
-            <Route 
+        <Route 
                 exact path="/"
                 render={() => 
                     <>
-                    <button>Best Games</button>
+                    <Link to="/best-games">
+                        <button onClick={()=>this.best_games()}>
+                                Best Games
+                        </button>
+                    </Link>
+                   
                     <div className="gamesList-All">
                     {
                         this.state.games.map((game, i) => {
@@ -106,6 +93,35 @@ best_games = () => {
                     </>
                 }
             >
+            </Route>
+
+            <Route 
+                exact path="/best-games"
+                render={() =>
+                    <>
+                    <Link to="/">
+                        <button>
+                                All games
+                        </button>
+                    </Link>
+                    <div className="gamesList-All">
+                    {
+                        this.state.bestGames.map((game, i) => {
+                            return (
+            
+                                <Game
+                                    key={i}
+                                    game={game}
+                                    remove_game={this.remove_game}
+                                /> 
+                            )
+                        })  
+                    }
+                    </div>
+                    </>
+                }
+            >
+
             </Route>
 
         </Switch>
