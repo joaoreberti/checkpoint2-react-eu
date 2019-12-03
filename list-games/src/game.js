@@ -16,13 +16,13 @@ export class Game extends Component {
         <h1>{name}</h1>
         <h2>Rating: {rating}</h2>
         <img src={background_image} alt={name}/>
-        
 
 {/*<Game /> contains a <button> that removes a game on click from the state. */}
 
         <button className="button" onClick={this.props.deleteGame.bind(this, id)}>
             Delete Game
         </button>
+       
       </div>
     );
   }
