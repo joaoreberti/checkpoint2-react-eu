@@ -1,0 +1,27 @@
+.game-card{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 50px;
+    height: 300px;
+}
+
+.game-card img{
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.game-card button{
+    width: 100px;
+    padding: 8px;
+    margin-top: 8px;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.game-card h4{
+    margin: 8px;
+    font-size: 14px;
+    font-weight: lighter;
+}
