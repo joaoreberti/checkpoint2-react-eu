@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Game from "./Game";
+import FilterButton from "./FilterButton";
 
 function GameList() {
   const [ gamesArr, setGamesArr ] = useState([]);
+  const [ isFilterOn, setFilterToggle ] = useState(false);
 
   useEffect(() => {
     fetch("https://wild-games.herokuapp.com/api/v1")
@@ -11,11 +13,20 @@ function GameList() {
   }, [])
 
   console.log(gamesArr);
-
   return (
-    <div className="games-list">
-      {gamesArr.map(game => <Game game={game} setGamesArr={setGamesArr} gamesArr={gamesArr} />)}
-    </div>
+    <>
+      {gamesArr && <FilterButton setFilterToggle={setFilterToggle} isFilterOn={isFilterOn}/>}
+      <div className="games-list">
+        {
+          isFilterOn ?
+            gamesArr
+              .filter(game => Number(game.rating) > 4.5)
+              .map(game => <Game key={game.id} game={game} setGamesArr={setGamesArr} gamesArr={gamesArr} /> )
+            :
+            gamesArr.map(game => <Game key={game.id} game={game} setGamesArr={setGamesArr} gamesArr={gamesArr} />)
+        }
+      </div>
+    </>
   );
 }
 

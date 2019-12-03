@@ -14,6 +14,7 @@
   max-width: 300px;
   height: 250px;
   object-fit: cover;
+  border-radius: 3px;
 }
 
 .game {
@@ -23,19 +24,21 @@
   max-width: 300px;
   margin: 20px;
   border: solid 1px black;
+  border-radius: 3px;
   padding: 5px;
 }
 
 .game-title {
   text-decoration-line: underline;
   cursor: pointer;
+  color: rgb(25, 56, 0);
 }
 
 .game > p {
   margin: 10px 0;
 }
 
-.remove {
+.button {
   align-self: flex-end;
   border: 0;
   margin: 10px 0;
@@ -44,6 +47,48 @@
   border-radius: 3px;
 }
 
-.remove:hover {
+.button:hover {
   background-color: gray;
 }
+
+.back {
+  display: block;
+  margin: 20px auto;
+  text-decoration-line: none;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.react-fancybox {
+  width: 300px;
+  margin: 0 3px;
+}
+
+.thumbnail {
+  width: 300px;
+}
+
+.thumbnail > img {
+  max-width: 300px!important;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .image-box > img {
+    width: 90vw;
+  }
+  .close-btn {
+    display: none;
+  }
+}
+

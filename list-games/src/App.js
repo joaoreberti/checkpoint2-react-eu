@@ -9,8 +9,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact render={() => <GameList />}/>
-          <Route path="/game/screenshots/:id" exact render={() => <ScreenShots />}/>
+          <Route path="/" exact component={GameList}/>
+          <Route path="/game/screenshots/:id" exact render={(routerProps) => <ScreenShots gameId={routerProps.match.params.id} />}/>
         </Switch>
       </BrowserRouter>
     </div>
