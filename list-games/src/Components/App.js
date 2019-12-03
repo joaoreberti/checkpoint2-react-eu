@@ -7,7 +7,7 @@ class App extends Component {
     super(props);
     this.state = {
       gamesData: [],
-      isOnList: true
+      showOnlyBestGames: false
     }
   }
 
@@ -36,18 +36,24 @@ class App extends Component {
     })
   }
 
+  handleBestGames = () => {
+    this.setState({
+        showOnlyBestGames: !this.state.showOnlyBestGames
+      })
+  }
 
 
 
   render() {
-    const { gamesData, isOnList } = this.state;
-    console.log(gamesData)
+    const { gamesData, showOnlyBestGames } = this.state;
+
     return (
       <div className="App">
         <GameList
           gamesData={gamesData}
           onRemoveFromList={this.handleRemoveFromList}
-          isOnList={isOnList}
+          showOnlyBestGames={showOnlyBestGames}
+          onPickByRating={this.handleBestGames}
         />
       </div>
     )
