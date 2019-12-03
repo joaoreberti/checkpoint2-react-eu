@@ -7,7 +7,9 @@ class GameList extends Component {
         super(props);
         this.state = {
             gamesCollection: [],
-            isPressed: false, 
+            storeFiltered: [],
+            isPressed: false,
+            isFiltered: false, 
         };
     }
     getGames = () => {
@@ -15,8 +17,7 @@ class GameList extends Component {
           .then(results  =>  results.json())
           .then(data  => {  
             this.setState ({ 
-              gamesCollection :  data,
-              isPressed: false, 
+              gamesCollection :  data, 
           })
         })
     }
@@ -30,6 +31,8 @@ class GameList extends Component {
         return `${game.id}` !== e.target.value})
         this.setState({
             gamesCollection: filtered,
+            storeFiltered: filtered, 
+            isFiltered: true, 
            })
     }
     
@@ -42,12 +45,24 @@ class GameList extends Component {
                 isPressed: true, 
             })
         }
-        else {this.getGames();}
+        else if (this.state.isFiltered === true) { 
+            this.setState({
+                isPressed: false,
+                gamesCollection: this.state.storeFiltered,
+            })
+        }
+        else {
+            this.getGames()
+            this.setState({
+                isPressed: false, 
+            })
+        }
     }
 
     render () {
         return(
-            <div>  
+            <div> 
+                <button onClick={this.getGames}>Reset Games</button>
                 <button onClick={this.handleRated}>{this.state.isPressed ?  "All Games" : "Highest Rated"}</button>
                 <div className='row'>
                     {this.state.gamesCollection.map(game => (
