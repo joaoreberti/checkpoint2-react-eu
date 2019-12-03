@@ -2,7 +2,7 @@ import React from "react";
 import './Game.css';
 
 
-const Game = ({ gamePackage, name, rating, released, image, hideGame }) => {
+const Game = ({ gamePackage, name, rating, released, image, hideGame, filterByRating }) => {
 
   return (
     <div className="ui card liked" >

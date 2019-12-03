@@ -33,7 +33,7 @@ class App extends React.Component {
             </Switch>
           </div>
 
-          <nav>
+          {/* <nav>
             <ul>
               <li>
                 <Link to="/">GameList</Link>
@@ -42,7 +42,7 @@ class App extends React.Component {
                 <Link to="/Screenshots">short-Screenshots</Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
 
         </BrowserRouter >
 

@@ -9,7 +9,8 @@ class GameList extends React.Component {
     this.state = {
       isLoaded: false,
       gamePackages: [],
-      filterByRating: false
+      filterByRating: false,
+      topGames: []
     }
   }
 
@@ -21,7 +22,8 @@ class GameList extends React.Component {
         .then(results => {
           this.setState({
             gamePackages: results,
-            isLoaded: true
+            isLoaded: true,
+            topGames: results.filter(game => game.rating >= 4.5)
           });
         });
     });
@@ -30,15 +32,14 @@ class GameList extends React.Component {
 
   // REMOVE GAME FROM STATE
   hideGame = (clickedGamePackage) => {
-    this.setState({
-      gamePackages: this.state.gamePackages.filter((game) => game !== clickedGamePackage)
-    })
+    this.setState({ gamePackages: this.state.gamePackages.filter(game => game !== clickedGamePackage) })
   }
 
   // FILTER GAMES BY RATING
   filterGames = () => {
-
+    this.setState({ filterByRating: !this.state.filterByRating })
   }
+
 
   render() {
     return (
@@ -46,30 +47,58 @@ class GameList extends React.Component {
 
         {/* Rating filter switch */}
         <div className="switchbox">
-          <h2>See Top Rated Games</h2>
+          <h2>{this.state.filterByRating ? "See All Games" : "See Top Rated Games"}</h2>
           <label className="switch">
-            <input type="checkbox" onChange={filterGames} />
+            <input type="checkbox" onChange={this.filterGames} />
             <span className="slider round"></span>
           </label>
         </div>
 
 
         <div className="ui grid">
-          {this.state.gamePackages.map(gamePackage => {
-            return (
-              <div className="four wide column">
-                <Game
-                  gamePackage={gamePackage}
-                  name={gamePackage.name}
-                  rating={gamePackage.rating}
-                  released={gamePackage.released}
-                  image={gamePackage.background_image}
-                  key={gamePackage.id}
-                  hideGame={this.hideGame}
-                />
-              </div>
-            );
-          })}
+          {this.state.filterByRating ? (
+            this.state.topGames.map(gamePackage => {
+              return (
+                <div className="four wide column">
+                  <Game
+                    gamePackage={gamePackage}
+                    name={gamePackage.name}
+                    rating={gamePackage.rating}
+                    released={gamePackage.released}
+                    image={gamePackage.background_image}
+                    hideGame={this.hideGame}
+                    filterByRating={this.state.filterByRating}
+                    key={gamePackage.id}
+                  />
+                </div>
+              );
+            })
+          ) : (
+              this.state.gamePackages.map(gamePackage => {
+                return (
+                  <div className="four wide column">
+                    <Game
+                      gamePackage={gamePackage}
+                      name={gamePackage.name}
+                      rating={gamePackage.rating}
+                      released={gamePackage.released}
+                      image={gamePackage.background_image}
+                      hideGame={this.hideGame}
+                      filterByRating={this.state.filterByRating}
+                      key={gamePackage.id}
+                    />
+                  </div>
+                );
+              })
+            )}
+
+
+
+
+
+
+
+
         </div>
 
       </div>
@@ -80,16 +109,4 @@ class GameList extends React.Component {
 }
 
 export default GameList
-
-
-
-// FilterButton = () => {
-//   if (myFavourites.includes(moviePackage)) {
-//     return "So last-season"
-//   }
-//   return "On fleak"
-// }
-
-
-// {this.FilterButton()}
 
