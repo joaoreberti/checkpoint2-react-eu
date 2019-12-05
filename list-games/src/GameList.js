@@ -8,6 +8,7 @@ export default class GameList extends Component {
         super(props);
         this.state = {
             apiData: [],
+            
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -16,25 +17,21 @@ export default class GameList extends Component {
         let pos = this.state.apiData.findIndex(g => g.id == myData)
 
         this.state.apiData.splice(pos, 1)
-
-        // this.setState(
-        //     {
-        //         apiData: this.state.apiData.filter((e) => {
-        //             return e.rating >= 4.5;
-        //         })
-        //     }
-        // )
         // console.log(this.state.apiData)
+        this.forceUpdate()
     }
-    
     handleClick = () => {
         this.setState(
             {
                 apiData: this.state.apiData.filter((e) => {
+            
+
                     return e.rating >= 4.5;
                 })
             }
         )
+        this.forceUpdate()
+
     }
     componentDidMount() {
         axios.get('https://wild-games.herokuapp.com/api/v1')
