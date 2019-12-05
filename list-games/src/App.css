@@ -34,3 +34,9 @@ body {
   position: relative;
   top: 120px;
 }
+
+.myButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
