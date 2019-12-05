@@ -26,7 +26,7 @@ componentWillMount() {
 render() {
     return(
         <div>
-            <button onClick={this.showMe}>Click</button>
+         
         </div>
     )
 }
