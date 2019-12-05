@@ -42,11 +42,11 @@ class GameList extends React.Component {
                  game.rating > 4.5)
                  .map(game => (
                     <Game image={game.background_image} title={game.name} releasedDate={game.released}
-                        rating={game.rating}
+                        rating={game.rating} short_screenshots={game.short_screenshots} id={game.id}
                     />
                 )) : this.state.games.map(game => (
                     <Game image={game.background_image} title={game.name} releasedDate={game.released}
-                        rating={game.rating}
+                        rating={game.rating} short_screenshots={game.short_screenshots} id={game.id}
                     />
                 )) }
 

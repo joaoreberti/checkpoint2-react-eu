@@ -1,14 +1,24 @@
 import React from 'react';
-import {Card, ListGroup,ListGroupItem} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 
 
 class Game extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            screenshots: false
+        }
+    }
+
+    handleScreenshots = () => {
+        this.setState({
+            screenshots: !this.state.screenshots
+        })
     }
 
 
     render() {
+    
         return (
             <div>
                 <Card style={{ width: '18rem' }} className="game-card">
@@ -26,10 +36,10 @@ class Game extends React.Component {
                     <Card.Body>
                         {/* 
                         TODO : implement showImages component and connect it to a button placed right here*/}
-                        {/* <Card.Link href={this.props.secondClip}>Another Link</Card.Link> */}
+                        <Card.Link href={"/jeu/screenshots/" + this.props.id} onClick={this.handleScreenshots}>screenshots</Card.Link>
                     </Card.Body>
                 </Card>
-
+                    {}
 
                 
             </div>
