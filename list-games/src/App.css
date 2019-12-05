@@ -1,4 +1,43 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
+
+.title {
+  font-family: 'Calistoga', cursive;
+  color: white;
+  position: relative;
+  top: 66px;
+  left: 15%;
+
+
+}
+
+.game-card {
+  margin: 70px;
+}
+
+.game-card:hover {
+ box-shadow: 10px 10px 5px grey;
+}
+
+body {
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.game-container {
+  background-color: #d8cece;
+  display: block;
+  flex-direction: row;
+  width: 450px;
+  height: 80vh;
+  overflow-y: scroll;
+  text-align: center;
+  position: relative;
+  top: 120px;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +74,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

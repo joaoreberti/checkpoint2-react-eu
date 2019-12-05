@@ -8,7 +8,7 @@ class GameList extends React.Component {
         super(props);
         this.state = {
             games: [],
-            clip: ""
+            clip: ''
         }
     }
 
@@ -17,6 +17,8 @@ class GameList extends React.Component {
             .then(response => {
                 this.setState({
                     games: response.data,
+
+
                 })
                 console.log(this.state.games)
             })
@@ -24,19 +26,15 @@ class GameList extends React.Component {
 
     componentWillMount() {
         this.retrieveGameList();
-        this.retrieveClip();
-    }
-    retrieveClip = () => {
-       let clips = this.state.games.clip;
-        console.log(clips)
+
     }
 
     render() {
         return (
-            <div>
+            <div className="game-container">
                 {this.state.games.map(game => (
-                    <Game image={game.background_image} title={game.name} releasedDate={game.released} 
-                     rating={game.rating} 
+                    <Game image={game.background_image} title={game.name} releasedDate={game.released}
+                        rating={game.rating}
                     />
                 ))}
 

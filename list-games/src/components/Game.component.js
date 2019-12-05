@@ -18,7 +18,7 @@ class Game extends React.Component {
     render() {
         return (
             <div>
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem' }} className="game-card">
                     <Card.Img variant="top" src={this.props.image} />
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
@@ -29,17 +29,16 @@ class Game extends React.Component {
                             Rating: {this.props.rating}
                         </Card.Text>
                     </Card.Body>
-                    <ListGroup className="list-group-flush">
-                        {/* {this.listGenres(props.genres)} */}
-                        {/* <ListGroupItem>{this.props.genre}</ListGroupItem> */}
-                        {/* <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                        <ListGroupItem>Vestibulum at eros</ListGroupItem> */}
-                    </ListGroup>
+                        
                     <Card.Body>
-                        {/* <Card.Link href={this.props.clip}>Clip</Card.Link> */}
+                        {/* 
+                        TODO : implement showImages component and connect it to a button placed right here*/}
                         {/* <Card.Link href={this.props.secondClip}>Another Link</Card.Link> */}
                     </Card.Body>
                 </Card>
+
+
+                
             </div>
         )
     }
