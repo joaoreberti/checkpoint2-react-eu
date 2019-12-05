@@ -7,13 +7,6 @@ class Game extends React.Component {
         super(props);
     }
 
-    // listGenres = (genres) => {
-    // for(let i = 0; i <= 2; i++) {
-    //     return(
-    //         <ListGroupItem>{genres[i].name}</ListGroupItem>
-    //     )
-    // }
-    // }
 
     render() {
         return (
