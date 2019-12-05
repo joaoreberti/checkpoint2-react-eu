@@ -1,35 +1,48 @@
 import React from 'react';
 import axios from 'axios';
+import Game from './Game.component'
 
 
 class GameList extends React.Component {
-constructor(props) {
-    super(props);
-    this.state = {
-        games: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            games: [],
+            clip: ""
+        }
     }
-}
 
-retrieveGameList = () => {
-    axios.get('https://wild-games.herokuapp.com/api/v1')
-    .then(response => {
-        this.setState({
-            games: response.data
-        })
-    })
-  
-}
-componentWillMount() {
-    this.retrieveGameList();
-}
+    retrieveGameList = () => {
+        axios.get('https://wild-games.herokuapp.com/api/v1')
+            .then(response => {
+                this.setState({
+                    games: response.data,
+                })
+                console.log(this.state.games)
+            })
+    }
 
-render() {
-    return(
-        <div>
-         
-        </div>
-    )
-}
+    componentWillMount() {
+        this.retrieveGameList();
+        this.retrieveClip();
+    }
+    retrieveClip = () => {
+       let clips = this.state.games.clip;
+        console.log(clips)
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.games.map(game => (
+                    <Game image={game.background_image} title={game.name} releasedDate={game.released} 
+                     rating={game.rating} 
+                    />
+                ))}
+
+            </div>
+        )
+    }
 }
 
 
