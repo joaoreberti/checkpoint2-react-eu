@@ -11,41 +11,26 @@ export default class GameList extends Component {
         
     }
 
-    fakeData = [
-        'first:',
-        'second:',
-        'third:'
-    ]
 
-    GameList = [];
+    loadList = (thelist= ['wainting a list']) => {
+        const rendeList = [];
+        for (let ea of thelist) {  //preview={thelist.clip.preview}
 
-    fillAList ( list, content)  {
-        list = content ;
-    }
-
-    fakeList = (fakDat) => {
-        const myList = [];
-        for (let ea of fakDat) {
-
-            myList.push(
+            rendeList.push(
                 <li>
-                    <p>{ea}</p>
-                    <Game/>
+                    <Game name={thelist.name} backgdImag={thelist['background_image']}  rate={thelist.rating}  release={thelist.released} /> 
                 </li> 
             ) 
         }
-        return myList;
-
+        return rendeList;
     }
-
-    loadList = (thelist= ['wainting a list']) => thelist   ;
 
     componentDidMount() {
 
         fetch('https://wild-games.herokuapp.com/api/v1')
             .then(res => res.json()) 
             .then(data => this.setState( {gamelist : data}))
-                //.catch(err => console.log('FETCHING Fail from API response!')) } ) ) // this.fillAList(GameList, data) //alert( ))  
+            .catch(err => console.log('FETCHING Fail from API response!'))  // this.fillAList(GameList, data) //alert( ))  
             //this.setState({istud: 'hic'})
     }
 
@@ -62,9 +47,9 @@ export default class GameList extends Component {
         return(
             <>
                 <h2>GameList creation</h2>
-                {/* {this.loadList(this.state.gamelist)} */}
+                {this.loadList(this.state.gamelist)}
                 <br/>
-                <p>Long List ? {GameList.lenght} items</p>
+                <p>Long List ? {this.loadList().length} items</p>
                 <p>GameList & game online ? Good start, so !</p>
         <div>{this.state.mylist}</div>
             </>
