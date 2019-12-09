@@ -6,6 +6,7 @@ export default class GameList extends Component {
         super(props) ;
         this.state={
                 istud : 'hoc'   // What does it mean ? comments below.
+                //GameList to be fetched.
             }
         
     }
@@ -17,6 +18,10 @@ export default class GameList extends Component {
     ]
 
     GameList = [];
+
+    fillAList ( list, content)  {
+        list = content ;
+    }
 
     fakeList = (fakDat) => {
         const myList = [];
@@ -33,13 +38,22 @@ export default class GameList extends Component {
 
     }
 
+    loadList = (thelist= ['wainting a list']) => thelist   ;
+
     componentDidMount() {
 
         fetch('https://wild-games.herokuapp.com/api/v1')
-            .then(res => res.json())
-            .then(res => GameList = res)
-            .catch(err => console.log('FETCHING Fail from API response!'))
+            .then(res => res.json()) 
+            .then(data => this.setState( {gamelist : data}))
+                //.catch(err => console.log('FETCHING Fail from API response!')) } ) ) // this.fillAList(GameList, data) //alert( ))  
+            //this.setState({istud: 'hic'})
+    }
 
+
+    componentDidUpdate() {
+        alert(this.state.gamelist);
+        console.log(this.state.gamelist)
+        
     }
 
 
@@ -48,9 +62,11 @@ export default class GameList extends Component {
         return(
             <>
                 <h2>GameList creation</h2>
-                {this.fakeList(this.fakeData)}
+                {/* {this.loadList(this.state.gamelist)} */}
                 <br/>
+                <p>Long List ? {GameList.lenght} items</p>
                 <p>GameList & game online ? Good start, so !</p>
+        <div>{this.state.mylist}</div>
             </>
         )
     }
