@@ -9,6 +9,14 @@ td, tbody
     margin:  5px 5px 5px 5px;
 }
 
+.game-list-title{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin:  5px 5px 5px 5px;
+  color: white;
+  font-size: 20px;
+}
+
 
 .display-games{
   display: flex;
@@ -27,6 +35,9 @@ td, tbody
   padding-top: 3px;
   margin:  5px 5px 5px 5px;
   align-items: center;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 5px;
 }
 
 .game-list{
@@ -36,10 +47,20 @@ td, tbody
 .image{
   max-height: 350px;
   max-width: 350px;
+  border-radius: 5px;
+}
+
+.btn-filter{
+  padding-top: 3px;
+  margin:  5px 5px 5px 5px;
+  padding-bottom: 3px;
+  width: 10%;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .btn{
-  background-color: black;
+  background-color: #36424D;
   color: white;
   padding-top: 3px;
   margin:  5px 5px 5px 5px;

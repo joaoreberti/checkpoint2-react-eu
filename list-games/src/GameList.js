@@ -1,7 +1,8 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Game from './Game'
 import './Game.css'
+import Agame from './Agame'
 const axios = require('axios');
 
 
@@ -28,7 +29,7 @@ class GameList extends React.Component {
 
   filterGames = () => {
     let gamesList = this.state.gameList;
-    let listOfGamesFilter = gamesList.filter(game => game.rating > 4.5)
+    let listOfGamesFilter = gamesList.filter(game => game.rating >= 4.5)
     this.setState({
       gameList : listOfGamesFilter,
       all : false
@@ -57,7 +58,11 @@ class GameList extends React.Component {
   render(){
     let gamesList = this.state.gameList;
     let listOfGames = gamesList.map((game, index)  => {
-       return <Game key={index} deleteAGame={this.deleteAGame} id={index} name={game.name} background_image={game.background_image} rating={game.rating} />
+       return (
+        <Game key={index} deleteAGame={this.deleteAGame} id={index} name={game.name} background_image={game.background_image} rating={game.rating} />
+
+     )
+
     });
 
     return (
@@ -65,12 +70,15 @@ class GameList extends React.Component {
       <div className="game-list">
           <h4 className="game-list-title">A beautiful Game's list</h4>
           {this.state.all
-            ? <button onClick={this.filterGames}> Filter movies </button>
-            : <button onClick={this.allGames}> All games </button>
+            ? <button className="btn-filter" onClick={this.filterGames}> Filter games </button>
+            : <button className="btn-filter" onClick={this.allGames}> All games </button>
           }
+
           <div className="display-games">
             {listOfGames}
           </div>
+
+
       </div>
     )
   }
