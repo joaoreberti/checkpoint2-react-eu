@@ -3,10 +3,6 @@ import { NavLink } from 'react-router-dom'
 
 class Game extends Component {
 
-    /*onClick = () => {
-        this.setState({isActive : false})
-    }*/
-
     render() {
         return (
             <tr>

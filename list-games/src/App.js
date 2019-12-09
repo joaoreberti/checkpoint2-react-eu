@@ -2,27 +2,26 @@ import React from 'react';
 import './App.css';
 import GameList from './components/GameList';
 import {
-  BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  NavLink
+  Route
 } from "react-router-dom";
+import Screens from './components/Screens'
 
-function App() {
-  return (
-
-    <div className="App">
-      <header className="App-header">
-      <Router>
-        <Link to ="">All Games</Link>
-      </Router>
-      </header>
-      <div className="table-game-zone">
-        <GameList />
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+        </header>
+        <div className="table-game-zone">
+          <Switch>
+            <Route exact path="/" component={GameList}/>
+            <Route to="/jeu/screenshot/" component={Screens}/>
+          </Switch>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

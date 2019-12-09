@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import Game from './Game'
+import {
+  Switch,
+  Route
+} from "react-router-dom";
+import Screens from './Screens'
 
 class GameList extends Component {
     constructor(props) {
@@ -66,7 +71,13 @@ class GameList extends Component {
                         ))}
                     </tbody>
             </table>
+            <Switch>
+                <Route exact path="/" />
+                <Route path="/jeu/screenshots/" 
+                    render={(props) => <Screens {...props} games={this.state.gameList} />}/>
+            </Switch>
             </>
+            
         )
 
     }
