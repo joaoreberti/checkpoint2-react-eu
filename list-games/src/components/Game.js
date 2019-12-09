@@ -5,7 +5,7 @@ const Game = ({id, name, background_image}) => (
             <li><h2>{id}</h2></li>
             <li><h1>{name}</h1></li>
             <li><img src={background_image} /></li>
-            <button>Delete</button>
+            <button className="button">Delete</button>
         </div>
 )
 

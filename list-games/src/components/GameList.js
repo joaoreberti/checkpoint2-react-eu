@@ -16,12 +16,19 @@ class GameList extends Component {
             .then(res => {
                 this.setState({
                     games: res.data
+
                 })
             })
     }
 
     componentDidMount() {
         this.fetchGames();
+    }
+
+    handleClick = (games) => {
+        this.setState ({
+            games: false
+        })
     }
 
 
