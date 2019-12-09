@@ -6,7 +6,7 @@ class Game extends Component{
 
   render(){
     return(
-      <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div className="cards-list col-12 col-sm-6 col-md-4 col-lg-3">
         <div className="card">
           <img
            src={this.props.image}
@@ -20,7 +20,7 @@ class Game extends Component{
             </h5>
             
             <p className="card-text">
-                {this.props.rating}
+                Rating : {this.props.rating}
             </p>
             <button onClick={()=>this.props.delete(this.props.id)}>
                 delete Me
