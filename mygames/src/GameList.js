@@ -16,6 +16,8 @@ export default class GameList extends Component {
         'third:'
     ]
 
+    GameList = [];
+
     fakeList = (fakDat) => {
         const myList = [];
         for (let ea of fakDat) {
@@ -28,6 +30,15 @@ export default class GameList extends Component {
             ) 
         }
         return myList;
+
+    }
+
+    componentDidMount() {
+
+        fetch('https://wild-games.herokuapp.com/api/v1')
+            .then(res => res.json())
+            .then(res => GameList = res)
+            .catch(err => console.log('FETCHING Fail from API response!'))
 
     }
 
