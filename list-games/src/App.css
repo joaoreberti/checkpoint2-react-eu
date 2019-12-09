@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -45,6 +43,13 @@ table {
   border: 1px solid black;
   padding: 10px;
 }
+
+button {
+  margin-bottom: 20px;
+}
+
+td {  text-align: center;
+  vertical-align: middle;}
 
 @keyframes App-logo-spin {
   from {
