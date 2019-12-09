@@ -24,8 +24,26 @@
   color: white;
 }
 
+.delete-img {
+  width: 20px;
+  height: 20px;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.table-game-zone { 
+  margin: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.table-zone, th, td {
+  border: 1px solid black;
+  padding: 10px;
 }
 
 @keyframes App-logo-spin {

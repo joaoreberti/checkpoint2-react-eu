@@ -7,7 +7,9 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-      <GameList />
+      <div className="table-game-zone">
+        <GameList />
+      </div>
     </div>
   );
 }
