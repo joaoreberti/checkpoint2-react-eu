@@ -1,0 +1,49 @@
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+}
+td, tbody
+{
+    border: 1px solid black;
+    padding-top: 3px;
+    margin:  5px 5px 5px 5px;
+}
+
+
+.display-games{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.game{
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+  padding-top: 3px;
+  margin:  5px 5px 5px 5px;
+  align-items: center;
+}
+
+.game-list{
+  background-image: url("/game.jpg");
+}
+
+.image{
+  max-height: 350px;
+  max-width: 350px;
+}
+
+.btn{
+  background-color: black;
+  color: white;
+  padding-top: 3px;
+  margin:  5px 5px 5px 5px;
+  padding-bottom: 3px;
+  width: 20%;
+  border-radius: 5px;
+}
