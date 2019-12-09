@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
 
 class Game extends Component {
 
@@ -15,6 +16,7 @@ class Game extends Component {
                 <td>
                     <img onClick={() => this.props.removeGame(this.props.game.name)} className="delete-img" src='/delete.png' alt="delete"/>
                 </td>
+                <td><NavLink to={`/jeu/screenshots/${this.props.index}`}>Show Screenshots</NavLink></td>
             </tr>
         )
     }

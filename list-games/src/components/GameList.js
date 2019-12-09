@@ -6,7 +6,7 @@ class GameList extends Component {
         super(props);
         this.state = {
             gameList: [],
-            buttonShouldDisplayAll: false
+            buttonText: "Best Games"
         }
     }
 
@@ -31,18 +31,17 @@ class GameList extends Component {
         }
     }
 
-    handleClickFilter = (event) => {
-        console.log(event)
-        if (!this.state.buttonShouldDisplayAll) {
+    handleClickFilter = () => {
+        if (this.state.buttonText === "Best Games") {
             const list = [...this.state.gameList];
             const filteredList = list.filter(element => element.rating >= 4.5)
             this.setState({
                 gameList: filteredList,
-                buttonShouldDisplayAll: true
+                buttonText: "All Games"
             })  
         } else { 
             this.getGames()
-            this.setState({buttonShouldDisplayAll: false})
+            this.setState({buttonText: "Best Games"})
         }
     }
 
@@ -50,7 +49,7 @@ class GameList extends Component {
     render() {
         return (
             <>
-            <button onClick={e => this.handleClickFilter(e)}>Filter on rating > 4.5</button>
+            <button onClick={this.handleClickFilter}>{this.state.buttonText}</button>
             <table className="table-game">
                 <thead>
                     <tr>
@@ -58,6 +57,7 @@ class GameList extends Component {
                         <th>Release date</th>
                         <th>Rating</th>
                         <th>Action</th>
+                        <th>Screenshots</th>
                     </tr>
                 </thead>
                     <tbody>
