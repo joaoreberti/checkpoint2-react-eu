@@ -6,7 +6,7 @@ class GameList extends Component {
         super(props);
         this.state = {
             gameList: [],
-            buttonText: false
+            buttonShouldDisplayAll: false
         }
     }
 
@@ -48,7 +48,6 @@ class GameList extends Component {
 
 
     render() {
-        const { ButtonText } = this.state.buttonText
         return (
             <>
             <button onClick={e => this.handleClickFilter(e)}>Filter on rating > 4.5</button>
