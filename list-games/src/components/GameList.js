@@ -28,12 +28,14 @@ class GameList extends Component {
     render () {
         const {games} = this.state;
         return (
+            <div className="gameList">
             <ul>
                 {games.map((game, index) => (
                     <Game {...game} key={index} />
                 ))
                 }
             </ul>
+            </div>
         )
     }
 

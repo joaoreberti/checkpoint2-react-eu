@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 
-const Game = ({id, name, slug, games_count, background_image, image_background}) => (
-    <div>
-        <li>{id}</li>
-        <li>{name}</li>
-        <li>{slug}</li>
-        <li>{games_count}</li>
-        <li>{background_image}</li>
-        <li>{image_background}</li>
-    </div>
+const Game = ({id, name, background_image}) => (
+        <div className="game-container">
+            <li><h2>{id}</h2></li>
+            <li><h1>{name}</h1></li>
+            <li><img src={background_image} /></li>
+            <button>Delete</button>
+        </div>
 )
 
 export default Game;
