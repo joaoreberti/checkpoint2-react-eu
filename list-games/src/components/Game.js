@@ -4,9 +4,9 @@ class Game extends Component {
 
     render() {
         return (
-            <div>
-                <div>{this.props.game.name}</div>
-            </div>
+            <tr>
+                <td>{this.props.game.name}</td>
+            </tr>
         )
     }
 }

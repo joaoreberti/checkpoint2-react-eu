@@ -26,10 +26,14 @@ class GameList extends Component {
 
     render() {
         return (
-            
-            this.state.gameList.map(gameInList => (
-                <Game game={gameInList} />
-            ))
+            <table className="table-game">
+                <thead></thead>
+                    <tbody>
+                        {this.state.gameList.map(gameInList => (
+                            <Game game={gameInList} />
+                        ))}
+                    </tbody>
+            </table>
                
         )
 
