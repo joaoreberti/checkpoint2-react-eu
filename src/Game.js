@@ -1,23 +1,13 @@
 import React, { Component } from "react";
+import { tsPropertySignature } from "@babel/types";
 
-class Game extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: props.name,
-            picture: props.picture,
-            rating: props.rating
-        }
-    }
-
-render() {
-    console.log(this.state.name)
+const Game = (props) => {
     return (
     <div>
-        {this.state.name} - {this.state.rating}/5 ⭐
-        <img src={this.state.picture} />
+        {props.name} - {props.rating}/5 ⭐
+        <img src={props.background_image} />
     </div>
-    )}
+    )
 }
 
 export default Game
