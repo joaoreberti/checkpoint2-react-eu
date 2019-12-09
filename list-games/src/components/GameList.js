@@ -21,9 +21,10 @@ import game from './game.css';
             })
     }
 
-    fctDelete = () => {
-        
-    }
+    handleClick = () => {
+        console.log("clicked")
+        this.setState({ });
+       }
 
   componentDidMount() {
   this.fetchGames();      
@@ -37,7 +38,9 @@ import game from './game.css';
       <div className="gameUl">
         <ul>
             { games.map((game, index) => (
-                    < Game {...game} key={index} / >
+                    < Game {...game} key={index} 
+                    deleteGame={() => this.handleClick()}
+                    / >
                 ))
             }
         </ul>
