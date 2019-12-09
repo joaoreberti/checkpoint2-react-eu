@@ -1,0 +1,26 @@
+import React from 'react'
+
+class Game extends React.component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+        }
+    }
+
+
+
+    render () {
+        return (
+            <div>
+
+            </div>
+        )
+    };
+
+
+};
+
+
+
+export default Game
