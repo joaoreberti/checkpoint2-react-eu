@@ -5,9 +5,10 @@ export default class GameList extends Component {
     constructor (props) {
         super(props) ;
         this.state={
-                istud : 'hoc'   // What does it mean ? comments below.
-                //GameList to be fetched.
+                istud : 'hoc',   // What does it mean ? comments below.
+                //gamelist to be fetched.
                 //count to be added on update.
+                actuaList: []
             }
         
     }
@@ -17,7 +18,7 @@ export default class GameList extends Component {
     i = 0
     count = () => {
         this.i +=1;
-        this.setState({count : this.i})
+       
     }
 
     //Display <Game> Commponent according the fetched data displayed as an array.
@@ -25,13 +26,24 @@ export default class GameList extends Component {
         const rendeList = [];
 
         for (let ea of thelist) { 
+            let position = 0;
             rendeList.push(
                 <li>
-                    <Game name={ea.name} backgdImag={ea['background_image']}  rate={ea.rating} release={ea.released} /> 
+                    <Game name={ea.name} backgdImag={ea['background_image']}  rate={ea.rating} release={ea.released} indx ={position} removing={this.removeGame} /> 
                 </li> 
             ) 
+            position += 1 ;
         }
         return rendeList;
+    }
+
+    removeGame = (theIndex) => {
+        let xList = [];
+        if (this.i > 1 )  xList= this.state.gamelist ; //.filter((item , index)=> index !== theIndex) ;
+        else xList = ['Waiting for update'];
+
+        //this.setState({ actuaList: xList });
+        
     }
 
     //MMMMMMMMMMMMMMMMMMMMMMMMMMM_ Mounting _MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -51,9 +63,10 @@ export default class GameList extends Component {
 
     componentDidUpdate() {
             // alert(this.state.gamelist);
-        console.log(this.state.gamelist)
+            // console.log(this.state.gamelist)
         console.log(this.i, this.state.count);
-        
+        //this.count();
+;        
     }
 
 
@@ -63,7 +76,7 @@ export default class GameList extends Component {
 
         return(
             <>
-                <button onClick = { ()=> this.count()}>click to update</button>
+                {/* <button onClick = { ()=> this.count()}>click to update</button> */}
                 <h2>GameList creation</h2>
                 <p>Long List ? {this.loadList().length} items</p>
                 {this.loadList(this.state.gamelist)}
