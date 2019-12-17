@@ -6,11 +6,10 @@ import {
   Redirect,
 } from 'react-router-dom';
 import './App.css';
-import { AppBar, Toolbar, Typography, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
-import GameList from './components/GameList'
-import Game from './components/Game'
+import GameList from './components/GameList';
+import Game from './components/Game';
+import Screenshoots from './components/screenshots'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { func } from 'prop-types';
 
 function App() {
   const [games, setGames] = useState([])
@@ -30,14 +29,13 @@ function App() {
     setCurrentSelected(index)
   }
   function handleDelete(curentSelected) {
-    games.splice(curentSelected,1)
+    displayedGames.splice(curentSelected,1)
   }
   function handleSortRating(){
     setSortRating(!sortRatingIsOn)
   }
 
   let sortBtnText = {}
-  let bg_color
   if(!sortRatingIsOn) {
     sortBtnText.btn = 'Best Rated Games'
     sortBtnText.header = 'Latest Games'
@@ -67,6 +65,10 @@ function App() {
         <Route
           path="/games/:slug"
           component={() => <Game game = {displayedGames[curentSelected]} handleDelete = {handleDelete}/>}
+        />
+        <Route
+          path="/screenshots/:id"
+          component={() => <Screenshoots game = {displayedGames[curentSelected]}/>}
         />
 
         <Redirect to="/Games"/>

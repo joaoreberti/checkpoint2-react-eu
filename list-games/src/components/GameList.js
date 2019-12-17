@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
     Button, 
@@ -8,8 +8,7 @@ import {
     CardActionArea,
     Typography,
     CardContent,
-    Container,
-    CardActions } from '@material-ui/core';
+    Container,} from '@material-ui/core';
 
 import StarRateIcon from '@material-ui/icons/StarRate';
 
@@ -67,7 +66,7 @@ return (
     <div>
 
         <Header games = {games}/>
-        <Container maxWidth="md" style={{ marginTop: 16 }}>
+        <Container  style={{ marginTop: 16 }}>
             <Grid container direction="column" spacing={4} >
             <Grid item className = 'games_list_header'>
                 <h1> {btn_text.header}</h1>
@@ -76,7 +75,7 @@ return (
                 <Button variant = 'outlined' onClick ={handleSortRating}> {btn_text.btn} </Button>
             </Grid>
             <Grid item>
-                    <Grid container spacing={2} justify = 'space-between'>
+                    <Grid container spacing={2} justify = 'space-around'>
                         {games.map(game => renderGame(game))}
                     </Grid>
                 </Grid>
