@@ -26,9 +26,12 @@ function App() {
     )
   
   function handleClick(index) {
+    console.log(index)
     setCurrentSelected(index)
   }
-  function handleDelete(curentSelected) {
+  console.log(curentSelected)
+  function handleDelete() {
+    console.log(curentSelected)
     displayedGames.splice(curentSelected,1)
   }
   function handleSortRating(){

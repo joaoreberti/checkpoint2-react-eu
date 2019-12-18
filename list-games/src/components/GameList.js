@@ -13,7 +13,7 @@ import {
 import StarRateIcon from '@material-ui/icons/StarRate';
 
 import Header from '../components/Header'
-export default function GameList({ games, handleClick, handleSortRating,btn_text, bg_color }){
+export default function GameList({ games, handleClick, handleSortRating,btn_text }){
 
     
     
