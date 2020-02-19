@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import GameList from "./GameList";
-import ScreenShots from "./ScreenShots";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -18,7 +18,7 @@ class App extends React.Component {
             {" "}
             <GameList />
           </Route>
-          <Route path="/jeu/screenshots/:id"></Route>
+          {/* <Route path="/jeu/screenshots/:id"></Route> */}
 
           <Redirect to="/games" />
         </Switch>

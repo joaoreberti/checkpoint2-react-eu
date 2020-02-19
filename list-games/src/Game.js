@@ -7,13 +7,7 @@ import Link from "@material-ui/core/Link";
 
 export class Game extends Component {
   render() {
-    const {
-      name,
-      background_image,
-      rating,
-      id,
-      short_screenshots
-    } = this.props.game;
+    const { name, background_image, rating, id } = this.props.game;
     return (
       <div>
         <Card
@@ -26,15 +20,13 @@ export class Game extends Component {
             backgroundColor: "inherit"
           }}
         >
-          <Typography>
-            <Image
-              src={background_image}
-              style={{
-                width: "30vw",
-                height: "20vh"
-              }}
-            />{" "}
-          </Typography>
+          <Image
+            src={background_image}
+            style={{
+              width: "30vw",
+              height: "20vh"
+            }}
+          />{" "}
           <Card
             style={{
               backgroundColor: "#ffcbcc",
@@ -45,13 +37,21 @@ export class Game extends Component {
               alignItems: "center"
             }}
           >
-            <Link href={`/jeu/screenshots/${id}`} color="inherit">
-              {" "}
-              <h2 style={{ fontFamily: "Mukta Vaani" }}>{name}</h2>
-            </Link>
+            <h2 style={{ fontFamily: "Mukta Vaani" }}>{name}</h2>
 
             <h4 style={{ fontFamily: "Mukta Vaani" }}>Rating: {rating}</h4>
-
+            <Link to={`/jeu/screenshots/${id}`} color="inherit">
+              <Button
+                type="submit"
+                variant="text"
+                size="medium"
+                value="Submit"
+                style={{ color: "#493f46" }}
+                onClick={this.props.showScreenShots.bind(this, id)}
+              >
+                Screenshots
+              </Button>
+            </Link>
             <Button
               type="submit"
               variant="text"

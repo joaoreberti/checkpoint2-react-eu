@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import Game from "./Game";
 import Box from "@material-ui/core/Box";
 import Nav from "./Nav";
+import ScreenShots from "./ScreenShots";
 
 export class GameList extends Component {
   state = {
     games: [],
-    filteredByRating: false
+    filteredByRating: false,
+    clickedGame: 0
   };
 
   componentDidMount() {
@@ -16,6 +18,12 @@ export class GameList extends Component {
         this.setState({ games });
       });
   }
+
+  showScreenShots = id => {
+    const currentState = this.state.clicked;
+    this.setState({ clickedGame: id });
+    console.log(id);
+  };
 
   deleteGame = id => {
     this.setState({
@@ -53,9 +61,18 @@ export class GameList extends Component {
         >
           {this.state.games
             .filter(game => !this.state.filteredByRating || game.rating >= 4.5)
-            .map(game => (
-              <Game key={game.id} game={game} deleteGame={this.deleteGame} />
-            ))}
+            .map(game =>
+              game.id === this.state.clickedGame ? (
+                <ScreenShots key={game.id} game={game} />
+              ) : (
+                <Game
+                  key={game.id}
+                  game={game}
+                  deleteGame={this.deleteGame}
+                  showScreenShots={this.showScreenShots}
+                />
+              )
+            )}
         </Box>
       </div>
     );
