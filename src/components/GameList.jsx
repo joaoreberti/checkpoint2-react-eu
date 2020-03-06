@@ -1,76 +1,65 @@
 import React from "react";
 import axios from "axios";
-
 import Game from "./Game";
 
 class GameList extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            name: "",
-            background_image: "",
-            rating: "",
             games: [],
-            buttonText: 'Filter Games',
-            arrayFiltered: [],
-            filterGameStatus: false
-        };
+            isFiltered: false,
+        }
     }
 
     componentDidMount() {
         axios.get("https://wild-games.herokuapp.com/api/v1").then(response => {
             const games = response.data;
-           console.log(games[0].background_image)
             this.setState({
-                games: games
+                games: games,
             });
         });
     }
 
-    handleDeleteGame = () => {
-        let newGameList = this.state.games;
-        newGameList.shift();
-
+    handleDeleteGame = (id) => {
+        let newGameList = this.state.games.filter(game => id !== game.id);
+    
         this.setState({
             games: newGameList
         })
     }
 
-    handleFilterGame = () => {
-        // console.log('allGames' , allGames)
-        if(this.state.buttonText === 'All Games') {
-            const allGames = this.state.games.map(game => <Game name={game.name} img={game.background_image} rating={game.rating}/>)
-            this.setState ({
-                buttonText: 'Filter Games',
-                arrayFiltered: allGames
-            })
-        }
-        if(this.state.buttonText === 'Filter Games') {
-            const filterGames = this.state.games.filter(game => game.rating>4.5);
-            this.setState({
-                buttonText: 'All Games',
-                arrayFiltered: filterGames
-            })}
+    handleFilter = () => {
+        const {isFiltered} = this.state;
+
+        this.setState({
+            isFiltered: !isFiltered
+        });
     }
 
     render() {
-        console.log('games', this.state.games)
+        const { isFiltered, games } = this.state;
+        const gamesList = isFiltered ? games.filter(game => game.rating >= 4.5) : games;
+
         return (
             <React.Fragment>
-                <button onClick={this.handleDeleteGame}>Erase Game</button>
-                <button onClick={this.handleFilterGame}>{this.state.buttonText}</button>
-                <ul>
-                    {this.state.arrayFiltered.map((game) =>
-                     <li key={game.id}><Game name={game.name} img={game.background_image} rating={game.rating}/></li>
-                     )}
-                </ul>
-                <ul>
-                    {this.state.games.map((game) =>
-                     <li key={game.id}><Game name={game.name} img={game.background_image} rating={game.rating}/></li>
-                     )}
+                <button
+                    onClick={this.handleFilter}
+                    >{isFiltered ? "All Games" : "Best Games"}</button>
+                <ul className="gameList">
+                    {gamesList.map((game) => 
+                        <li key={game.id}>
+                            <Game   
+                                name={game.name} 
+                                background_image={game.background_image} 
+                                rating={game.rating}
+                                method={() => this.handleDeleteGame(game.id)}
+                            />
+                        </li>
+                    )}
                 </ul>
             </React.Fragment>
-        );
+        )
     }
 }
 

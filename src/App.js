@@ -1,5 +1,5 @@
 import React from 'react';
-import GameList from  '../src/components/GameList';
+import GameList from  './components/GameList';
 
 class App extends React.Component {
   constructor(props) {
