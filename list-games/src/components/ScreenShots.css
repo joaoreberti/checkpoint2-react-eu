@@ -1,10 +1,12 @@
 .gallery{
     max-width: 80vw;
     margin-left: 10vw;
-    margin-top: 200px;
+    max-height: 80vh;
 }
 
 img{
     margin: 50px;
-    width: 250px
+    min-width: 200px;
+    
+
 }

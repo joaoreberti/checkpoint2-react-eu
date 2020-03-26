@@ -23,6 +23,12 @@ class Game extends Component{
             
 
         }
+        this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick(){
+      
+        //this.setState({video:true})
+        
     }
 
     componentDidUpdate(prevProps){
@@ -35,8 +41,8 @@ class Game extends Component{
             <div className="cell">
                 <h2>{this.state.gameData.name}</h2>
                 <img alt="" src ={`${this.state.gameData.background_image}`} />
-                <video src={`${this.state.gameData.clip.clip}`} controls ></video>
-        <p>Rating: {this.state.gameData.rating}</p>
+                <video onClick={this.handleClick}src={`${this.state.gameData.clip.clip}`} controls ></video>
+        <p><img id="star"src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Full_Star_Yellow.svg/1024px-Full_Star_Yellow.svg.png" /> {this.state.gameData.rating}</p>
         <p>Released : {this.state.gameData.released}</p>
         <button><Link to={{pathname: `/screenshots/${this.state.gameData.id}`, state:{ imgs: this.state.gameData.short_screenshots }}}>ScreenShots</Link></button>
         <button onClick={() => this.props.toRemove(this.props.number)}>Remove</button>
