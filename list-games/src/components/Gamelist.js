@@ -46,6 +46,7 @@ class Gamelist extends Component {
             this.state.bestOnly ? game.rating>4.5 : game.rating >0)
             .map((game, index) => (
                 <Game
+                key={index}
                   number={index}
                   toRemove={this.handleRemove}
                   gameData={game}
@@ -59,6 +60,3 @@ class Gamelist extends Component {
 }
 
 export default Gamelist;
-/* 
-
-this.state.games */
