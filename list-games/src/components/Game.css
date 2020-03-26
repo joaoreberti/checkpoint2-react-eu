@@ -1,0 +1,12 @@
+.cell{
+    width: calc(20% - 10px);
+    text-align: center;
+    border: 1px solid gray;
+    margin: 1px ;
+}
+
+video, img{
+    width: 200px;
+    height: 120px;
+}
+

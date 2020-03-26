@@ -1,14 +1,19 @@
 import React, {Component} from "react"
 import Game from "./Game"
+import "./Gamelist.css"
 class Gamelist extends Component{
     constructor(){
         super()
         this.state={
             games : []
         }
+        this.handleRemove=this.handleRemove.bind(this)
     }
 
+    handleRemove(id){
+        console.log(id)
 
+    }
     componentDidMount(){
         fetch("https://wild-games.herokuapp.com/api/v1")
         .then(result => result.json())
@@ -16,9 +21,12 @@ class Gamelist extends Component{
     }
     render(){
         return(
-            <div>
-                <h1>Gamelist</h1>
-                {this.state.games.map((game)=><Game gameData = {game}/>)}
+        <div >
+<h1>Gamelist</h1>
+            <div className="list" >
+                
+                {this.state.games.map((game)=><Game toRemove={this.handleRemove} gameData = {game}/>)}
+            </div>
             </div>
 
         )
